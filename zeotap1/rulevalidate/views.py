@@ -5,6 +5,16 @@ from rest_framework.response import Response
 from .models import Rule, Node
 from .serializers import RuleSerializer
 from .rulesparser import create_rule_ast, evaluate_rule, combine_rules
+from django.shortcuts import render
+from django.conf import settings
+from django.http import HttpResponse
+import os
+
+def home(request):
+    file_path = os.path.join(settings.BASE_DIR, 'templates', 'index.html')
+    with open(file_path, 'r') as f:
+        return HttpResponse(f.read(), content_type='text/html')
+
 
 class RuleViewSet(viewsets.ModelViewSet):
     queryset = Rule.objects.all()

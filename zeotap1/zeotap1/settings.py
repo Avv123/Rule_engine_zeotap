@@ -59,6 +59,38 @@ INSTALLED_APPS = [
 #     'USE_SESSION_AUTH': True,
 # }
 import os
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
+
+# TEMPLATES = [
+#     {
+#         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+#         'DIRS': [os.path.join(BASE_DIR, 'templates')],  # Add your templates directory here
+#         'APP_DIRS': True,
+#         'OPTIONS': {
+#             'context_processors': [
+#                 # Add context processors if needed
+#             ],
+#         },
+#     },
+# ]
+
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'APP_DIRS': True,
+    },
+]
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
